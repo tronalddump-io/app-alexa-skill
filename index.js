@@ -9,7 +9,7 @@ const handlers = {
   'LaunchRequest': function() {
     console.log("welcome");
     this.emit(":ask", welcomeMessage, welcomeMessage);
-  }
+  },
   'AMAZON.HelpIntent': function () {
     this.emit(':ask', helpMessage, helpMessage);
   },
