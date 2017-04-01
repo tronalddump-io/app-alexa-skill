@@ -37,6 +37,7 @@ const handlers = {
     });
   },
   'GetRandomMeme': function() {
+    // TODO: This intent has been disabled since the Alexa app displays this image as not found
     const url = "https://api.tronalddump.io/random/meme";
     const imgObj = {
       smallImageUrl: url,
