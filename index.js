@@ -18,7 +18,7 @@ function getRandomQuote(cb) {
   return https.get(options, (res) => {
     res.on('data', (d) => {
       resp = JSON.parse(d)
-      cb(resp.value);
+      cb(resp);
     });
   })
 }
