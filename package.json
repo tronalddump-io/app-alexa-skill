@@ -1,0 +1,12 @@
+{
+  "name": "tronald_dump",
+  "version": "1.0.0",
+  "description": "Tronald Dump Alexa skill",
+  "main": "index.js",
+  "repository": "https://github.com/Tonkpils/tronalddump-alexa.git",
+  "author": "Leo Correa <lcorr005@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "alexa-sdk": "^1.0.7"
+  }
+}
