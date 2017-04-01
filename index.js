@@ -14,13 +14,13 @@ function getRandomQuote(cb) {
       'user-agent': 'Tronald Dump Alexa',
       'accept': 'application/hal+json'
     }
-  }
+  };
   return https.get(options, (res) => {
     res.on('data', (d) => {
       resp = JSON.parse(d)
       cb(resp);
     });
-  })
+  });
 }
 
 const handlers = {
@@ -32,9 +32,17 @@ const handlers = {
     getRandomQuote((resp) => {
       const quote = resp.value;
       const source = resp._embedded.source[0];
-      const cardMessage = `You can find the source of this rant here: ${source.url}`
-      this.emit(":tellWithCard", quote, "Quote Source", cardMessage)
+      const cardMessage = `${quote}\n\nYou can find the source of this rant here: ${source.url}`;
+      this.emit(":tellWithCard", quote, "Quote Source", cardMessage);
     });
+  },
+  'GetRandomMeme': function() {
+    const url = "https://api.tronalddump.io/random/meme";
+    const imgObj = {
+      smallImageUrl: url,
+      largeImageUrl: url
+    };
+    this.emit(":tellWithCard", "Check the alexa app to see your meme.", "Tronald Dump", "Enjoy your meme!", imgObj);
   },
   'AMAZON.HelpIntent': function () {
     this.emit(':ask', helpMessage, helpMessage);
