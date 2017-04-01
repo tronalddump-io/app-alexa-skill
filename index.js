@@ -29,7 +29,12 @@ const handlers = {
     this.emit(":ask", welcomeMessage, welcomeMessage);
   },
   'GetRandomQuote': function() {
-    getRandomQuote((quote) => { this.emit(":tell", quote) });
+    getRandomQuote((resp) => {
+      const quote = resp.value;
+      const source = resp._embedded.source[0];
+      const cardMessage = `You can find the source of this rant here: ${source.url}`
+      this.emit(":tellWithCard", quote, "Quote Source", cardMessage)
+    });
   },
   'AMAZON.HelpIntent': function () {
     this.emit(':ask', helpMessage, helpMessage);
