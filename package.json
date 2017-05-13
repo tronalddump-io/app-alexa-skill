@@ -6,7 +6,20 @@
   "repository": "https://github.com/Tonkpils/tronalddump-alexa.git",
   "author": "Leo Correa <lcorr005@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "eslint": "node node_modules/eslint/bin/eslint.js *.js"
+  },
   "dependencies": {
     "alexa-sdk": "^1.0.7"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.0",
+    "eslint-config-matchilling": "^2.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint-config-matchilling"
+    ]
   }
 }
